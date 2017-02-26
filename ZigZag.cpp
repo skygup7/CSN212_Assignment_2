@@ -18,20 +18,23 @@ int main()
 {
     csl;
     int t;
+    cout<<"Input the number of Test Cases"<<endl;
     cin>>t;
-    while(t--)
+    while(t--)                                  ///A loop for each test case.
     {
         int n;
+        cout<<"Input the number of elements in the array."<<endl;
         cin>>n;
         int ar[n];
-        forp(i,0,n)
+        cout<<"input the elements."<<endl;
+        forp(i,0,n)                             ///Input of array
             cin>>ar[i];
         int dp[2][n+1];
         dp[0][0]=dp[1][0]=1;
         forp(i,1,n)
         {
-            dp[0][i]=dp[1][i]=0;
-            forp(j,0,i)
+            dp[0][i]=dp[1][i]=0;                ///dp[0][i] stores longest Zigzag array with i th element increasing.
+            forp(j,0,i)                         ///dp[1][i] stores longest Zigzag array with i th element decreasing.
             {
                 if(ar[j]<ar[i])
                     dp[0][i]=max(dp[0][i],1+dp[1][j]);
@@ -39,7 +42,7 @@ int main()
                     dp[1][i]=max(dp[1][i],1+dp[0][j]);
             }
         }
-        cout<<max(dp[0][n-1],dp[1][n-1])<<endl;
+        cout<<"The maximum length of the zigzag array present in the given array is : "<<max(dp[0][n-1],dp[1][n-1])<<endl;
     }
 }
 
