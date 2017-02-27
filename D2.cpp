@@ -14,7 +14,7 @@ using namespace std;
 #define forn(i,a,n) for(int i=(a);i>=(n);i--)
 #define csl ios_base::sync_with_stdio(false); cin.tie(NULL)
 
-int bins(int dp[],int r,int k)
+int bins(int dp[],int r,int k)      ///Binary Search for finding the position of the element
 {
 	int mid,l=-1;
 	while(r-l>1)
@@ -30,7 +30,7 @@ int bins(int dp[],int r,int k)
 	return r;
 }
 
-int lisop(int a[],int n)
+int lisop(int a[],int n)            ///The lisop function for finding the length of lis in N*log(N)
 {
 	int dp[n];
 	int nd=1;
@@ -56,7 +56,7 @@ int lisop(int a[],int n)
 	return nd;
 }
 
-int main()
+int main()                  ///Solution accepted at "https://www.codechef.com/status/D2,skyguptaiit"
 {
 	int t;
 	cin>>t;
@@ -67,10 +67,10 @@ int main()
 		int a[2*n+5];
 		forp(i,0,n){
 			cin>>a[i];
-			a[i+n]=a[i];
+			a[i+n]=a[i];    ///Appending the same array for circular like motion
 		}
 		int maxi=0;
-		forp(i,0,n)
+		forp(i,0,n)         ///For each element in array, find the length of longest increasing subsequence.
             maxi=max(maxi,lisop(a+i,n));
         cout<<maxi<<endl;
 	}
