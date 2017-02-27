@@ -18,9 +18,9 @@ int main()
 {
     csl;
     int w,h;
-    //cout<<"Input width and length."<<endl;
+    cout<<"Input width and length."<<endl;
     cin>>w>>h;
-    //cout<<"Input the number of "
+    cout<<"Input the number of bad roads"<<endl;
     int n,a,b,c,d;
     cin>>n;
     int bad[2][w+1][h+1];
@@ -32,6 +32,7 @@ int main()
             bad[0][i][j]=bad[1][i][j]=dp[i][j]=0;
         }
     }
+    cout<<"Input "<<n<<" bad road coordinates in format 'a b c d' without quotes."<<endl;
     forp(i,0,n)
     {
         cin>>a>>b>>c>>d;
@@ -68,7 +69,7 @@ int main()
                 dp[j][i]+=dp[j][i-1];
         }
     }
-    cout<<dp[w][h]<<endl;
+    cout<<"The number of ways to reach destination are : "<<dp[w][h]<<endl;
 }
 
 
